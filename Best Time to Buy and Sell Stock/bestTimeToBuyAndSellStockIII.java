@@ -1,4 +1,4 @@
-public class bestTimeToBuyAndSellStockIII {
+public class BestTimeToBuyAndSellStockIII {
     public int maxProfitFail1(int[] prices) {
         int min = Integer.MAX_VALUE, profitA = 0,
                 cur_buy = 0, buy = 0, sell = 0;

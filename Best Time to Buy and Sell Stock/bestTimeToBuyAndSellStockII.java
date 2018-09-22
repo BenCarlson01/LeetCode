@@ -1,4 +1,4 @@
-public class bestTimeToBuyAndSellStockII {
+public class BestTimeToBuyAndSellStockII {
     public int maxProfit1(int[] prices) {
         if (prices.length < 2) {
             return 0;

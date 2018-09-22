@@ -1,4 +1,4 @@
-public class bestTimeToBuyAndSellStockIIII {
+public class BestTimeToBuyAndSellStockIIII {
 
     /** Inspired by solution 3 in bestTimeToBuyAndSellStockIII */
     public int maxProfit(int k, int[] prices) {
