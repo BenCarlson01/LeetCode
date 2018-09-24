@@ -45,4 +45,46 @@ public class InsertInterval {
         }
         return null;
     }
+
+    /** More logical */
+    public List<Interval> insert2(List<Interval> intervals, Interval newInterval) {
+        LinkedList<Interval> ans = new LinkedList<>();
+        int i;
+        boolean inserted = false;
+        for (i = 0; i < intervals.size(); i += 1 ) {
+            if (isOverlap(intervals.get(i), newInterval)) {
+                ans.add(combine2(intervals.get(i), newInterval));
+                inserted = true;
+                break;
+            } else if (newInterval.end < intervals.get(i).start) {
+                break;
+            } else {
+                ans.add(intervals.get(i));
+            }
+        }
+        if (!inserted) {
+            ans.add(i, newInterval);
+            i -= 1;
+        }
+        i += 1;
+        for (; i < intervals.size(); i += 1) {
+            if (isOverlap(ans.getLast(), intervals.get(i))) {
+                ans.addLast(combine2(ans.removeLast(), intervals.get(i)));
+            } else {
+                break;
+            }
+        }
+        for (; i < intervals.size(); i += 1) {
+            ans.add(intervals.get(i));
+        }
+        return ans;
+    }
+    
+    private boolean isOverlap(Interval a, Interval b) {
+        return a.start <= b.end && b.start <= a.end;
+    }
+    
+    private Interval combine2(Interval a, Interval b) {
+        return new Interval(Math.min(a.start, b.start), Math.max(a.end, b.end));
+    }
 }
