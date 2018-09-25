@@ -1,4 +1,4 @@
-public class IsPalidrome {
+public class ValidPalidrome {
 
     /** I did this myself and it is so fast */
     public boolean isPalindrome(String s) {
